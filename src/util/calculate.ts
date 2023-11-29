@@ -1,35 +1,37 @@
 import type { OperationToken } from '../types';
 
 interface BinaryOperation {
+  left: number;
+  right: number;
   perform: () => number;
 }
 
 class AdditionOperation implements BinaryOperation {
-  constructor(private left: number, private right: number) {}
+  constructor(public left: number, public right: number) {}
 
   perform(): number {
     return this.left + this.right;
   }
 }
 
-class SubtractionOperation {
-  constructor(private left: number, private right: number) {}
+class SubtractionOperation implements BinaryOperation {
+  constructor(public left: number, public right: number) {}
 
   perform(): number {
     return this.left - this.right;
   }
 }
 
-class MultiplicationOperation {
-  constructor(private left: number, private right: number) {}
+class MultiplicationOperation implements BinaryOperation {
+  constructor(public left: number, public right: number) {}
 
   perform(): number {
     return this.left * this.right;
   }
 }
 
-class DivisionOperation {
-  constructor(private left: number, private right: number) {}
+class DivisionOperation implements BinaryOperation {
+  constructor(public left: number, public right: number) {}
 
   perform(): number {
     return this.left / this.right;

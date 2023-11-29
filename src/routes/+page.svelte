@@ -77,7 +77,11 @@
 
 <main>
   <div class="calculator">
-    <div class="results">
+    <div
+      class={`results ${
+        resultDisplay.length >= 12 ? 'results-sm' : 'results-lg'
+      }`}
+    >
       {resultDisplay}
     </div>
     <div class="digits">
@@ -167,9 +171,16 @@
   .results {
     height: 60px;
     color: white;
-    font-size: 50px;
     display: flex;
     flex-direction: row-reverse;
     margin-right: 10px;
+  }
+
+  .results-lg {
+    font-size: 50px;
+  }
+
+  .results-sm {
+    font-size: 25px;
   }
 </style>
